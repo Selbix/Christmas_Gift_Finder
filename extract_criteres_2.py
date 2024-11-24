@@ -2,9 +2,9 @@ import os
 import pandas as pd
 from mistralai import Mistral
 from io import StringIO
-df = pd.read_csv("path to amazon-products.csv")
+df = pd.read_csv("/Users/samyelbakouri/Desktop/HACKATHON/archive (2)/Amazon-Products.csv")
 #df["category"] = df["category"].unique().to_string()
-api_key # your API key
+api_key = "XUgHIg6M4DeAlT0YdNF8UjzJ24dFONEA" # your API key
 model = "mistral-large-latest"
 client = Mistral(api_key=api_key)
 temperature = 0.5
@@ -136,7 +136,7 @@ def choix(user_prompt, df):
         messages = [
             {
                 "role": "user",
-    "content": f"Given the client's query: '{prompt_client}', and the provided dataframe : {str(df)}, extract up to 30 item names from the dataframe that best match the query. Return the result strictly as a Python list in the format ['item1', 'item2', ...]. If you happen not to find anything of value, choose 30 items at random. Do not include any comments, explanations, or text other than the list.",
+    "content": f"Given the client's query: '{prompt_client}', and the provided dataframe : {str(df['name'])}, extract up to 5 item names from the dataframe that best match the query. Return the result strictly as a Python list in the format ['name1', 'name2', ...]. If you happen not to find anything of value, choose 30 name at random. Do not include any comments, explanations, or text other than the list.",
             },
         ]
     )
@@ -160,8 +160,8 @@ def choix(user_prompt, df):
         raise ValueError("The DataFrame is empty. Please provide valid data.")
     else:
         print("The DataFrame is not empty.")
+    print(dataframe_filtered.head(6))
     return dataframe_filtered
-
     
 #choix("je veux une télévision haute qualité", categorie("je veux une télévision haute qualité", df))
 #prix("je veux un ordinateur")
