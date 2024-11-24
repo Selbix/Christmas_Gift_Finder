@@ -20,26 +20,15 @@
 - Elle parcourt l'ensemble des noms d'objets extraits par la fonction categorie, et garde les objets les plus pertinents en comparant le titre et ce que l'utilisateur a décrit pour savoir si cet objet peut correspondre à ses besoins (en générant une petite description à partir du nom de l'objet)
 - A partir de l'output de Mistral, on filtre encore une fois le dataframe en ne gardant que l'objet le plus pertinent
 
-## Résultat global de l’application :
-# Étapes de traitement
-# Saisie utilisateur :
+⚠️Il y plusieurs étaps de nettoyage de l'output de Mistral à chaque fois afin qu'il soit utilisable comme index
 
-L’utilisateur saisit une description libre, par exemple : "Un cadeau pour un amateur de technologie qui aime les gadgets."
-Filtrage initial :
+# app.py :
+- Désormais, nous importons notre CSV de données, que nous traitons avec pandas. Nous le traitons ensuite avec les fonctions mentionnées plus haut et on obtient deux dataframes exploitables.
+- On extrait alors LE produit le plus pertinent qui est mis en avant par notre application web
+- On extrait, selon le nombre de produits à afficher que l'utilisateur a choisi, un certains nombres de produits pertinents de façon aléatoire, que l'on affiche avec le prix, la note des utilisateurs, une photo et le prix avec solde : le nom du produit est un lien clickable qui redirige vers la fiche produit Amazon.
 
-ec.categorie est utilisé pour réduire la taille du dataset en conservant uniquement les catégories et sous-catégories les plus pertinentes.
-Sélection du produit principal :
 
-ec.choix permet d’isoler le produit unique qui correspond le mieux à la description donnée.
-Traitement des prix :
 
-Les colonnes actual_price et discount_price sont nettoyées (suppression des symboles monétaires comme ₹, des virgules) et converties en format numérique pour faciliter les calculs et les comparaisons.
-Présentation des résultats :
 
-# Recommandation principale :
-Le produit le plus pertinent est mis en avant avec une présentation complète :
-Nom du produit, image, note des utilisateurs, prix réel, prix réduit, et un lien d’achat cliquable.
-# Suggestions alternatives :
-Les produits restants du dataframe filtré sont présentés en grille pour offrir des options supplémentaires à l’utilisateur.
-Message de repli :
-Si aucun produit clair ne peut être identifié, un produit par défaut du dataset est proposé.
+
+
