@@ -33,7 +33,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Initialize LLM client
-api_key = "XUgHIg6M4DeAlT0YdNF8UjzJ24dFONEA"
+api_key #insert API key
 model = "mistral-large-latest"
 client = Mistral(api_key=api_key)
 temperature = 0.5
