@@ -106,6 +106,7 @@ temperature = 0.5
 df = pd.read_csv("path to amazon-products.csv")
 
 
+
 def filter_into_output(df_filtered, nbr_resultats, user_prompt):
     # [Keep the existing function implementation]
     api_key = "XUgHIg6M4DeAlT0YdNF8UjzJ24dFONEA"
@@ -202,6 +203,33 @@ if submit_button:
                 .fillna(0)
                 .astype(int)
             )
+            df['actual_price'] = (
+                df['actual_price']
+                .astype(str)
+                .str.replace('₹', '', regex=False)
+                .str.replace(',', '', regex=False)
+                .astype(float)
+                .fillna(0)
+                .astype(int)
+            )
+            df['discount_price'] = (
+                df['discount_price']
+                .astype(str)
+                .str.replace('₹', '', regex=False)
+                .str.replace(',', '', regex=False)
+                .astype(float)
+                .fillna(0)
+                .astype(int)
+            )
+            df['discount_price'] = (
+                df['discount_price']
+                .astype(str)
+                .str.replace('₹', '', regex=False)
+                .str.replace(',', '', regex=False)
+                .astype(float)
+                .fillna(0)
+                .astype(int)
+            )
             response_message, filtered_df_poubelle = filter_into_output(filtered_df, n, user_prompt)
             filtered_df = filtered_df.sample(n=n).reset_index(drop=True)
             
@@ -210,6 +238,28 @@ if submit_button:
             st.markdown(f"*{response_message}*")
             if not filtered_df_one_choice.empty:
                     st.markdown(""" 
+                        <div style="background-color: rgba(232, 23, 44, 0.1); 
+                                    border: 2px solid #e8172c; 
+                                    border-radius: 10px; 
+                                    padding: 20px; 
+                                    margin: 20px 0;">
+                            <h3 style="color: white;">🎅 We have found the perfect gift for you:</h3>
+                            <p style="color: white;">{}</p>
+                            <p style="color: white;">🎯 Price: ₹{}</p>
+                            <p style="color: white;">⭐ Rating: {}</p>
+                            <p style="color: white;">🚨 Discounted Price: ₹{}</p>
+                            <a href="{}" style="color: white; text-decoration: underline;">Click here to buy</a>
+                        </div>
+                        """.format(
+                            filtered_df_one_choice['name'].values[0],
+                            format(filtered_df_one_choice['actual_price'].values[0], '.2f'),
+                            filtered_df_one_choice['ratings'].values[0],
+                            format(filtered_df_one_choice['discount_price'].values[0], '.2f'),
+                            filtered_df_one_choice['link'].values[0]
+                        ), unsafe_allow_html=True)
+                    st.image(filtered_df_one_choice['image'].values[0], width=200)
+            else :
+                st.markdown(""" 
                     <div style="background-color: rgba(232, 23, 44, 0.1); 
                                 border: 2px solid #e8172c; 
                                 border-radius: 10px; 
@@ -223,14 +273,14 @@ if submit_button:
                         <a href="{}" style="color: white; text-decoration: underline;">Click here to buy</a>
                     </div>
                     """.format(
-                        filtered_df_one_choice['name'].values[0],
-                        format(filtered_df_one_choice['actual_price'].values[0], '.2f'),
-                        filtered_df_one_choice['ratings'].values[0],
-                        format(filtered_df_one_choice['discount_price'].values[0], '.2f'),
-                        filtered_df_one_choice['link'].values[0]
+                        df['name'].values[374481],
+                        format(df['actual_price'].values[374481], '.2f'),
+                        df['ratings'].values[374481],
+                        format(df['discount_price'].values[374481], '.2f'),
+                        df['link'].values[374481]
                     ), unsafe_allow_html=True)
-                    
-                    st.image(filtered_df_one_choice['image'].values[0], width=200)
+                st.image(df['image'].values[374481], width=200)
+
             st.markdown("### 🎁 Other gift suggestions:")        
             if not filtered_df.empty:
                 # Create columns for better layout
