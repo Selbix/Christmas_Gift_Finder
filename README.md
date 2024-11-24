@@ -8,7 +8,7 @@
 - Dans le terminal (de l'IDE pour le faire fonctionner directement), lancer le fichier app.py : streamlit run app.py
 - Vous avez désormais accès au site - ne pas hésiter à rafraîchir la page entre les requêtes pour libérer de la mémoire/rafraichir
 
-## Approche 
+### Approche 
 - Nous utilisons un dataset de produits Amazon contenant près de 400 000 lignes, avec des colonnes clés comme name (nom du produit), ratings (notes des utilisateurs), actual_price (prix réel), discount_price (prix avec réduction), main_category (catégorie principale) et sub_category (sous-catégorie).
 - L’objectif principal est de permettre à l’utilisateur de décrire une personne ou un cadeau idéal, puis de filtrer les produits pour proposer une recommandation principale ainsi que des suggestions alternatives pertinentes.
 - 
