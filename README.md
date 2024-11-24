@@ -4,12 +4,13 @@
 # Instructions pour faire fonctionner le programme :
 - Télécharger le dataset suivant en CSV : https://www.kaggle.com/datasets/lokeshparab/amazon-products-dataset?resource=download&select=Amazon-Products.csv et le placer dans le même dossier que le reste des fichiers
 - Modifier dans app et extract_criteres_2 le chemin vers le CSV
-- Ajouter une clé APIKEY pour faire fonctionner le modèle Mistral.AI
+- Ajouter une clé APIKEY pour lancer l'application le modèle Mistral.AI
 - Dans le terminal (de l'IDE pour le faire fonctionner directement), lancer le fichier app.py : streamlit run app.py
 - Vous avez désormais accès au site - ne pas hésiter à rafraîchir la page entre les requêtes pour libérer de la mémoire/rafraichir
 
 ## Approche 
-- Nous utilisons un dataset de produits Amazon (un peu moins de 400k lignes), qui possède les colonnes 'name', 'ratings', 'actual_price', 'discount_price', 'main_category' et 'sub_category' qui nous intéressent
+- Nous utilisons un dataset de produits Amazon contenant près de 400 000 lignes, avec des colonnes clés comme name (nom du produit), ratings (notes des utilisateurs), actual_price (prix réel), discount_price (prix avec réduction), main_category (catégorie principale) et sub_category (sous-catégorie).
+- L’objectif principal est de permettre à l’utilisateur de décrire une personne ou un cadeau idéal, puis de filtrer les produits pour proposer une recommandation principale ainsi que des suggestions alternatives pertinentes.
 - 
 # Fonction ec.categorie() :
 - Dans un premier temps, le traitement d'un dataframe aussi grand est impossible via LLM directement : nous filtrons donc une première fois le dataframe en ne retenant que la catégorie les plus adaptées au prompt utilisateur qui nous est parvenu 
