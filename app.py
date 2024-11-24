@@ -37,7 +37,7 @@ api_key #insert API key
 model = "mistral-large-latest"
 client = Mistral(api_key=api_key)
 temperature = 0.5
-df = pd.read_csv("/Users/samyelbakouri/Desktop/HACKATHON/archive (2)/Amazon-Products.csv")
+df = pd.read_csv("path to amazon-products.csv")
 
 def filter_into_output(df_filtered, nbr_resultats, user_prompt):
     # [Keep the existing function implementation]
