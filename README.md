@@ -33,6 +33,8 @@
 ## LIEN DE LA DEMO :
 https://youtu.be/9p93baQakV0
 Voici le lien vidéo de la démo, uploadée sur Youtube en non répertorié 
+https://youtu.be/S1Gh2AZk0Bw
+Lien vidéo d'une seconde démo (qualité vidéo légérement meilleure, même capacités démontrées // déterminisme du meilleur cadeau et caractère changeant des autres suggestions en gardant de la pertinence)
 
 
 
