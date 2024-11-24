@@ -2,9 +2,9 @@ import os
 import pandas as pd
 from mistralai import Mistral
 from io import StringIO
-df = pd.read_csv("/Users/samyelbakouri/Desktop/HACKATHON/archive (2)/Amazon-Products.csv")
+df = pd.read_csv("path to amazon-products.csv")
 #df["category"] = df["category"].unique().to_string()
-api_key = "XUgHIg6M4DeAlT0YdNF8UjzJ24dFONEA" # your API key
+api_key # your API key
 model = "mistral-large-latest"
 client = Mistral(api_key=api_key)
 temperature = 0.5
