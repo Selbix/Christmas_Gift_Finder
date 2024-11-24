@@ -26,6 +26,7 @@
 - Désormais, nous importons notre CSV de données, que nous traitons avec pandas. Nous le traitons ensuite avec les fonctions mentionnées plus haut et on obtient deux dataframes exploitables.
 - On extrait alors LE produit le plus pertinent qui est mis en avant par notre application web
 - On extrait, selon le nombre de produits à afficher que l'utilisateur a choisi, un certains nombres de produits pertinents de façon aléatoire, que l'on affiche avec le prix, la note des utilisateurs, une photo et le prix avec solde : le nom du produit est un lien clickable qui redirige vers la fiche produit Amazon.
+- Nous mettons en place plusieurs vérifications d'erreurs, dans le cas où le dataframe est vide, avec des messages d'erreurs pour guider l'utilisateur vers une tentative fructueuse.
 
 
 
